@@ -1,33 +1,4 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@mistake947 
-mistake947
-/
-Graph
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Graph/UnionFind
-@mistake947
-mistake947 Create UnionFind
-Latest commit 7373879 14 days ago
- History
- 1 contributor
-42 lines (36 sloc)  1.11 KB
-
- class Solution {
+class Solution {
     class UnionFind{
         int num;
         int numComponents;
