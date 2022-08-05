@@ -16,7 +16,7 @@
 
 		for(auto it: graph[u])
 		{
-            int v=it.first,wt=it.second;
+                      int v=it.first,wt=it.second;
         
 			if(dist[u]+wt<dist[v])
 			{
