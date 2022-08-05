@@ -1,32 +1,27 @@
-vector<int> dijkstra(int Source,vector<vector<int>> &graph)
-{
-    int n=graph.size();
-
-    vector<int> dist(n,INT_MAX);
-
-
+ vector<int> dijkstra(int source,vector<vector<pair<int,int>>> &graph,int n)
+    {
 	priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
 
-	
+	vector<int> dist(n,INT_MAX);
 
-	pq.push({0,Source});
-
-	dist[Source]=0;
+	pq.push({0,source});
+	dist[source]=0;
 
 	while(!pq.empty())
 	{
-		auto node=pq.top();
-
+		auto currPair=pq.top();
 		pq.pop();
 
-		int currNode=node.second;
+		int u=currPair.second;
 
-		for(auto it: graph[currNode])
+		for(auto it: graph[u])
 		{
-			if(dist[currNode]+it.second<dist[it.first])
+            int v=it.first,wt=it.second;
+        
+			if(dist[u]+wt<dist[v])
 			{
-				dist[it.first]=dist[currNode]+it.second;
-				pq.push({dist[it.first],it.first});
+				dist[v]=dist[u]+wt;
+				pq.push({dist[v],v});
 			}
 		}
 	}
