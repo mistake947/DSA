@@ -1,4 +1,4 @@
-       vector<int>ans(n);
+ vector<int>ans(n);
         stack<int>st;
         for(int i=0;i<nums.size();i++)
         {
