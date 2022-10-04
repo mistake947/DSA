@@ -1,4 +1,3 @@
-class Solution {
     class UnionFind{
         int num;
         int numComponents;
