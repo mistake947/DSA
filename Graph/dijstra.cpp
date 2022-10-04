@@ -13,7 +13,8 @@
 		pq.pop();
 
 		int u=currPair.second;
-
+                ll ud=currPair.first;
+                if(ud>dist[u])continue;  //ye bahut important step hai
 		for(auto it: graph[u])
 		{
                       int v=it.first,wt=it.second;
