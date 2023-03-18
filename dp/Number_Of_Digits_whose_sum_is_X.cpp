@@ -35,3 +35,47 @@ int main() {
 
   return 0;
 }
+
+///--------------------------------------------------//
+
+
+// Given a positive integer n, return the number of the integers in the range [0, n] 
+// whose binary representations do not contain consecutive ones.
+
+
+class Solution {
+public:
+    int dp[32][3][3];
+    string st="";
+    int solve(int idx, int small,int last)
+    {
+        if(idx>=st.size())return 1;
+        if(dp[idx][small][last]!=-1)return dp[idx][small][last];
+        
+        int range=(st[idx]-'0');
+        if(small==true)range=1;
+        int currAns=0;
+        for(int i=0;i<=range;i++)
+        {
+            int newSmall=((small==1)|| i!=range);
+            if(last==1 and i==1)continue;
+            currAns+=solve(idx+1,newSmall,i);
+        }
+        return dp[idx][small][last]=currAns;
+        
+    }
+    int findIntegers(int n) {
+        for(int i=0;i<=log2(n);i++)
+        {
+            if(n&(1<<i))st="1"+st;
+            else st="0"+st;
+        }
+        memset(dp,-1,sizeof(dp));
+        return solve(0,0,0);
+        cout<<st<<endl;
+        return 0;
+    }
+};
+
+
+////--------------------------------------------------//
