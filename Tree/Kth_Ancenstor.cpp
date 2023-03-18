@@ -30,4 +30,33 @@ int parent[21][60000];
         return node;
     }
 
-//----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+
+// longets commmon subsequenc 
+int lca(int a,int b)
+{
+  //depth[a]<=depth[b]
+if(depth[a]>depth[b])//swap a and b..
+{
+ int tmp=a;
+ a=b;
+ b=tmp;
+}
+int d=depth[b]-depth[a];
+b=find_kth(b,d);//dth parent of b
+
+if(a==b)
+ return a;
+
+for(int j=x;j>=0;j--)
+{
+ if(par[a][j]!=par[b][j])
+ {
+   a=par[a][j];
+   b=par[b][j];
+ }
+}
+
+return par[a][0];
+}
+//..............................................
