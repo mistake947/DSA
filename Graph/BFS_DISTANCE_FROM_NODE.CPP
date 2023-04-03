@@ -5,6 +5,7 @@ void bfs(int node, vector<int>&dis,vector<vector<int>>&g)
         vector<int>vis(n,0);
         q.push(node);
         dis[node]=0;
+      // yaha visti nahi karte bina .
         while(!q.empty())
         {
             int curr=q.front();
@@ -21,6 +22,8 @@ void bfs(int node, vector<int>&dis,vector<vector<int>>&g)
                      dis[v]=min(dis[v],dis[curr]+1);
                    
                     q.push(v);
+                    
+                    //yaha vistit nahi karte 
                 }
             }
         }
